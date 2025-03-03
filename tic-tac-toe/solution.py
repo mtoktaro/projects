@@ -1,4 +1,23 @@
-def check(matrix, x,y, ch):
+def check_final_move(count):
+    if count==9:
+        print('Draw')
+        return 0
+
+def update_matrix(matrix, x,y,ch, count, correct_move):
+
+    if matrix[x][y]=='.' and x<3 and y<3:
+
+        matrix[x][y]=ch
+        count+=1
+            
+        for i in matrix:
+            print(i)
+        
+        correct_move=True
+
+    return count, correct_move
+
+def check_bingo(matrix, x,y, ch):
 
     if matrix[x][0]==matrix[x][1]==matrix[x][2]==ch:
         return True
@@ -19,41 +38,42 @@ def main():
     matrix=[['.']*3 for i in range(3)]
     count=0
     while move==False:
-        p1=input("Player 1 enter your coordinates: ")
-        p1=p1.split(' ')
-        x=int(p1[0])
-        y=int(p1[1])
-        matrix[x][y]='X'
-        count+=1
-        
-        for i in matrix:
-            print(i)
 
-        if count==9:
-            print('Draw')
-            return 0
-        else: 
+        correct_move=False
+        while correct_move==False:
+
+            p1=input("Player 1 enter your coordinates: ")
+
+            p1=p1.split(' ')
+            x=int(p1[0])
+            y=int(p1[1])
             
-                
-            if check(matrix,x,y,'X')==True:
-                print('Player 1 won')
-                return 0
-                
+            count, correct_move = update_matrix(matrix, x,y,'X', count,correct_move)
             
-
-        p2=input("Player 2 enter your coordinates: ")
-        p2=p2.split(' ')
-        x=int(p1[0])
-        y=int(p1[1])
-        matrix[x][y]='O'
-        count+=1
-
-        for i in matrix:
-            print(i)
-        
-        if check(matrix,x,y,'X')==True:
+        check_final_move(count)
+            
+        if check_bingo(matrix,x,y,'X')==True:
             print('Player 1 won')
-        return 0    
+            move=True
+            return 0
+                
+        
+        correct_move=False
+        
+        while correct_move==False:
+            p2=input("Player 2 enter your coordinates: ")
+            p2=p2.split(' ')
+            x=int(p2[0])
+            y=int(p2[1])
+            
+            count, correct_move = update_matrix(matrix, x, y,'O', count, correct_move)
+                
+
+        check_final_move(count)
+        if check_bingo(matrix,x,y,'O')==True:
+            print('Player 2 won')
+            move=True
+        
 
 
 
