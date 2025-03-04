@@ -1,11 +1,13 @@
+import random
+
 def check_final_move(count):
     if count==9:
         print('Draw')
-        return 0
+        exit()
 
 def update_matrix(matrix, x,y,ch, count, correct_move):
 
-    if matrix[x][y]=='.' and x<3 and y<3:
+    if matrix[x][y]=='.' and x<3 and y<3 and x>=0 and y>=0:
 
         matrix[x][y]=ch
         count+=1
@@ -32,49 +34,49 @@ def check_bingo(matrix, x,y, ch):
     
     return False
 def main():
-    
     move=False
     
     matrix=[['.']*3 for i in range(3)]
     count=0
+    a=set()
     while move==False:
 
         correct_move=False
         while correct_move==False:
 
-            p1=input("Player 1 enter your coordinates: ")
+            p1=input("Player enter your coordinates: ")
 
             p1=p1.split(' ')
             x=int(p1[0])
             y=int(p1[1])
             
             count, correct_move = update_matrix(matrix, x,y,'X', count,correct_move)
-            
         
+        a.add((x,y))
             
         if check_bingo(matrix,x,y,'X')==True:
-            print('Player 1 won')
+            print('Player won')
             move=True
             return 0
-        
-        check_final_move(count)        
+                
+        check_final_move(count)
         
         correct_move=False
+        print('Dumb Computer move:')
         
         while correct_move==False:
-            p2=input("Player 2 enter your coordinates: ")
-            p2=p2.split(' ')
-            x=int(p2[0])
-            y=int(p2[1])
+            
+            x=random.randint(0,2)
+            y=random.randint(0,2)
             
             count, correct_move = update_matrix(matrix, x, y,'O', count, correct_move)
                 
 
         
         if check_bingo(matrix,x,y,'O')==True:
-            print('Player 2 won')
+            print('Computer won')
             move=True
-            
+
         check_final_move(count)
 
 
