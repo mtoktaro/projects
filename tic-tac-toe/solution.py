@@ -65,7 +65,7 @@ def main():
             p2=input("Player 2 enter your coordinates: ")
             p2=p2.split(' ')
             x=int(p2[0])
-            y=int(p2[1])
+            y=int(p2[1]) 
             
             count, correct_move = update_matrix(matrix, x, y,'O', count, correct_move)
                 
@@ -74,7 +74,7 @@ def main():
         if check_bingo(matrix,x,y,'O')==True:
             print('Player 2 won')
             move=True
-            
+
         check_final_move(count)
 
 
