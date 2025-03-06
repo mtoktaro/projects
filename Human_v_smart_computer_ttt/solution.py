@@ -1,5 +1,12 @@
 import random
 
+def findBestMove(mattrix,x,y,correct_move):
+
+    
+
+
+    return x,y,correct_move
+
 def check_final_move(count):
     if count==9:
         print('Draw')
@@ -66,6 +73,7 @@ def main():
         
         while correct_move==False:
             
+            x,y, correct_move=findBestMove(matrix, correct_move)
             x=random.randint(0,2)
             y=random.randint(0,2)
             
