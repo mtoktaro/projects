@@ -6,7 +6,9 @@ def max_product(arr):
 def main():
 
     arr = [1, 7, 3, 4, 9, 5] 
+    print(arr[1:-1])
     print(max_product(arr))
+    
 
 if __name__ == '__main__':
     main()
