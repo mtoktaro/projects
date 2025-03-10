@@ -5,7 +5,9 @@ def count_word_frequency(words):
     for i in words:
         
         if i not in my_dict:
-            my_dict[i]=words.count(i)
+            my_dict[i]=1
+        else:
+            my_dict[i]+=1
     return my_dict
 
 
