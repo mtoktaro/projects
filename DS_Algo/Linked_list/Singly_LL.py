@@ -21,7 +21,7 @@ def main():
     
 
 
-    k=LL(3)
+    k=LinkedList(3)
     print(k)
 
 if __name__ == '__main__':  
