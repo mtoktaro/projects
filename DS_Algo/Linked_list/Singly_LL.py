@@ -13,7 +13,6 @@ class LinkedList:
 
 
 def main():
-    
 
     k=LinkedList(3)
     print(k)
