@@ -38,8 +38,8 @@ def main():
     k=LinkedList()
 
     k.insert_begin(4)
-    k.insert_begin(3)
-    k.insert_begin(2)
+    # k.insert_begin(3)
+    # k.insert_begin(2)
     print(k)
 
 if __name__ == '__main__':  
