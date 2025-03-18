@@ -68,7 +68,12 @@ class LinkedList:
             return ans
     
     def reverse(self):
-        
+
+        node=self.head
+        new=LinkedList()
+        new=node
+        node=node.next
+        new.head.
 
 
 
