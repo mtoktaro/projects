@@ -69,11 +69,18 @@ class LinkedList:
     
     def reverse(self):
 
-        node=self.head
-        new=LinkedList()
-        new=node
-        node=node.next
-        new.head.
+        prev=None
+        curr=self.head
+        self.head=self.tail
+        self.tail=None
+        next=Node(None)
+        while curr!= None:
+            next=curr.next
+            curr.next=prev
+            prev=curr
+            curr=next
+
+        
 
 
 
