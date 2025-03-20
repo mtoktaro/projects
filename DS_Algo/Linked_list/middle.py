@@ -1,106 +1,110 @@
 class Node:
     def __init__(self, v):
-        self.value=v
-        self.next=None
+        self.value = v
+        self.next = None
+
 
 class LinkedList:
     def __init__(self):
-        self.head=None
-        self.tail=None
-        self.length=0
+        self.head = None
+        self.tail = None
+        self.length = 0
     
     def __str__(self):
-        tmp_node=self.head 
+        tmp_node = self.head 
+        ans = ''
 
-        ans=''
-        while tmp_node != None:
-            ans+=str(tmp_node.value)
-            if tmp_node.next != None:
-                ans+=' --> '
-            tmp_node=tmp_node.next
+        while tmp_node!=None:
+            ans += str(tmp_node.value)
+            if tmp_node.next!=None:
+                ans += ' --> '
+            tmp_node = tmp_node.next
 
         return ans
     
     def insert_begin(self,value):
-        new_node=Node(value)
-        if self.head==None:
-            self.head=new_node 
-            self.tail=new_node
-        else:
-            new_node.next=self.head 
-            self.head=new_node
+        new_node = Node(value)
 
-        self.length+=1
+        if self.head==None:
+            self.head = new_node 
+            self.tail = new_node
+        else:
+            new_node.next = self.head 
+            self.head = new_node
+
+        self.length += 1
     
     def insert_end(self, value):
-        new_node=Node(value)
-        if self.head == None:
-            self.head=new_node
-            self.tail=new_node
+        new_node = Node(value)
+
+        if self.head==None:
+            self.head = new_node
+            self.tail = new_node
         else:
-            self.tail.next=new_node
-            self.tail=new_node
-        self.length+=1
+            self.tail.next = new_node
+            self.tail = new_node
+        self.length += 1
 
     def delete(self, index):
-        tmp=self.head
+        tmp = self.head
+        
         if index<0 or index>=self.length:
             return None
 
         for _ in range(index-1):
-            tmp=tmp.next
+            tmp = tmp.next
         
-        if index == 0:
-            self.head=self.head.next
-            self.length-=1
+        if index==0:
+            self.head = self.head.next
+            self.length -= 1
+
             return tmp
         elif (index+1)==self.length:
-            ans=self.tail
-            tmp.next=None
-            self.tail=tmp
-            self.length-=1
-            return ans
+            ans = self.tail
+            tmp.next = None
+            self.tail = tmp
+            self.length -= 1
             
+            return ans
         elif tmp!=self.tail:
-            ans=tmp.next
-            tmp.next=tmp.next.next
-            self.length-=1
+            ans = tmp.next
+            tmp.next = tmp.next.next
+            self.length -= 1
+
             return ans
     
     def reverse(self):
+        prev = None
+        curr = self.head
+        self.head = self.tail
+        self.tail = None
+        next = Node(None)
 
-        prev=None
-        curr=self.head
-        self.head=self.tail
-        self.tail=None
-        next=Node(None)
-        while curr!= None:
-            next=curr.next
-            curr.next=prev
-            prev=curr
-            curr=next
+        while curr!=None:
+            next = curr.next
+            curr.next = prev
+            prev = curr
+            curr = next
 
     def middle(self):
-        if self.length %2==0:
-            pos=(self.length/2)+1
+        if self.length%2==0:
+            pos = (self.length/2) + 1
         else:
-            pos=(self.length+1)/2
+            pos = (self.length+1) / 2
         
-        curr=self.head
-        i=1
+        curr = self.head
+        i = 1
+
         while i!=pos:
 
-            curr=curr.next
-            i+=1
+            curr = curr.next
+            i += 1
 
-        curr.next=None
-        self.head=curr
+        curr.next = None
+        self.head = curr
 
         return curr
         
-
-
-
 
 def main():
 
