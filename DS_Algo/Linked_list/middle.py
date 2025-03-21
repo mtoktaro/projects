@@ -19,7 +19,7 @@ class LinkedList:
             if tmp_node.next!=None:
                 ans += ' --> '
             tmp_node = tmp_node.next
-
+  
         return ans
     
     def insert_begin(self,value):
