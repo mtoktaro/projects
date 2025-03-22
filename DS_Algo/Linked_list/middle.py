@@ -21,7 +21,7 @@ class LinkedList:
             tmp_node = tmp_node.next
   
         return ans
-    
+      
     def insert_begin(self,value):
         new_node = Node(value)
 
