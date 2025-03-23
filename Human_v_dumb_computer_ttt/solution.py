@@ -34,6 +34,10 @@ def check_bingo(matrix, x,y, ch):
     
     return False
 def main():
+
+    n , m, k = map(int, input("Please input board dimensions and number of of symbols in a row for the win: ").split())
+    print(n, m, k)
+
     move=False
     
     matrix=[['.']*3 for i in range(3)]
