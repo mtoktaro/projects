@@ -50,7 +50,7 @@ def main():
             
             count, correct_move = update_matrix(matrix, x,y,'X', count,correct_move)
             
-        
+    
             
         if check_bingo(matrix,x,y,'X')==True:
             print('Player 1 won')
