@@ -38,8 +38,8 @@ def check_diagonal(matrix, x, y, pos, n, m, k, ch):
 def check_bingo(matrix, n, m, k, ch):
 
     for i in range(n):
-        x_counter=0
-        y_counter=0
+        x_counter = 0
+        y_counter = 0
 
         for j in range(m):
             if matrix[i][j] == ch:
@@ -112,7 +112,7 @@ def main():
         if check_bingo(matrix, n, m, k, 'O') == True:
             print('Computer won')
             move = True
-
+ 
         check_final_move(count)
 
 
