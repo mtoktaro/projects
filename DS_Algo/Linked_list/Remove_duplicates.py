@@ -105,15 +105,19 @@ class LinkedList:
         return curr
         
     def remove_duplicates(self):
+        if self.head is None:
+            return
         s = set()
         curr = self.head
         s.add(curr.value)
-        while curr.next is not None:
+        while curr.next is not None and curr is not None:
             
             while curr.next.value in s:
                 curr.next = curr.next.next
+                if curr.next is None:
+                    return 
                 
-            
+
             s.add(curr.next.value)
             curr=curr.next
 
@@ -123,22 +127,17 @@ def main():
 
     k = LinkedList()
 
-    k.insert_begin(4)
-    k.insert_begin(3)
-    k.insert_begin(6)
-    k.insert_begin(3)
-    k.insert_begin(3)
-    k.insert_begin(2)
-    k.insert_begin(2)
+    # k.insert_begin(4)
+    # k.insert_begin(4)
+    # k.insert_begin(4)
     
-    k.insert_end(6)
-    k.insert_end(6)
-    k.insert_end(6)
+    # k.insert_end(6)
+    # k.insert_end(6)
     print(k)
 
-    print(f"delete {2} position deleted {k.delete(2).value}")
+    # print(f"delete {2} position deleted {k.delete(2).value}")
     print(k)
-    k.reverse()
+    # k.reverse()
 
     print(k)
     # k.middle()
