@@ -8,7 +8,7 @@ class Solution:
             if curr.val in s:
                 ans += 1
                 curr = curr.next
-                
+                  
                 while curr is not None and curr.val in s:
                     curr = curr.next
             else:
