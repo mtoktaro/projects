@@ -1,5 +1,5 @@
 class Node:
-    def __init__(self, v):
+    def __init__(self, v = 0):
         self.value = v
         self.next = None
 
@@ -121,29 +121,64 @@ class LinkedList:
             s.add(curr.next.value)
             curr=curr.next
 
-
+    def mergeTwoLists(self, l1, l2):
+    # :type list1: Optional[ListNode]
+    # :type list2: Optional[ListNode]
+    # :rtype: Optional[ListNode]
+    
+        ll1 = l1.head
+        ll2 = l2.head
+        new_node = Node()
         
+        while (ll1 is not None) and (ll2 is not None): 
+            if ll1.value < ll2.value: 
+                new_node.next = ll1
+                new_node = new_node.next
+                ll1 = ll1.next
+            else:
+                new_node.next = ll2
+                new_node = new_node.next
+                ll2 = ll2.next
+            
+        if ll1 is None: 
+            new_node.next = ll2
+        else: 
+            new_node.next = ll1
+
+
+        if l1.head.value < l2.head.value:
+            return l1
+        else:
+            return l2
+        
+
+
 def main():
+
+    ll = LinkedList()
+
+    ll.insert_begin(1)
+    ll.insert_end(7)
+    ll.insert_end(7)
+    print(ll)
 
     k = LinkedList()
 
     k.insert_begin(4)
     k.insert_begin(4)
     k.insert_begin(4)
-    
     k.insert_end(6)
     k.insert_end(6)
     print(k)
-
     # print(f"delete {2} position deleted {k.delete(2).value}")
-    print(k)
+    
     # k.reverse()
 
-    print(k)
+    ans = LinkedList()
+    print(ans.mergeTwoLists(k, ll))
     # k.middle()
    
-    k.remove_duplicates()
-    print(k)
+    print(ans)
 
 if __name__ == '__main__':  
     main()
