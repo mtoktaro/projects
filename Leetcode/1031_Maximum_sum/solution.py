@@ -25,7 +25,7 @@ class Solution:
             i += 1
             if max < count:
                 max = count
-        
+         
         return max
 
 def main():
