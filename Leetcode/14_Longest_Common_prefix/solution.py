@@ -15,6 +15,6 @@ class Solution:
                 ans += letter
             else:
                 break
-                
+                 
         
         return ans 
