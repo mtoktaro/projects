@@ -9,5 +9,5 @@ class Solution:
             max_p = max(max_p, prices[i])
 
    
-        
+         
         return ans
