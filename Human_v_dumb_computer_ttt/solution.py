@@ -1,4 +1,9 @@
 import random
+class Matrix:
+    def __init__(self, width, height):
+        self.val = [['.'] * height for i in range(width)]
+    
+    
 
 def check_final_move(count):
 
