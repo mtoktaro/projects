@@ -18,7 +18,7 @@ class Solution:
                         return True
 
         return False
-
+ 
     def dfs(self, board, row, column, n, m, s_pos, visited):
         if s_pos == (len(word) - 1):
             return True
