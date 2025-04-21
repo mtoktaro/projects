@@ -26,7 +26,7 @@ class Solution:
                 if pos>0 and stack[pos - 1] == '{':
                     stack.pop(pos - 1)
                 else:
-                
+                 
                     return False
         
         if len(stack) == 0:
