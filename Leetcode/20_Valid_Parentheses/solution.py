@@ -35,5 +35,5 @@ class Solution:
             return False
 
 
-
+ 
 print(Solution().isValid("()[]{}"))
