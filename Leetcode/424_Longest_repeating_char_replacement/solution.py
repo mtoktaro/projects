@@ -22,6 +22,7 @@ class Solution:
         return ans
 
             
-                    
+s = 'ABBB'
+print(Solution().characterReplacement(s , 1))               
 
             
