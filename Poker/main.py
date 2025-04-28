@@ -25,7 +25,7 @@ def main():
 
     for i in suits:
         for j in range(2, 15):
-            cards.append(i + str(j))
+            cards.append((i, str(j)))
     
     random.shuffle(cards)
 
