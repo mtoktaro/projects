@@ -27,15 +27,37 @@ def main():
         for j in range(2, 15):
             cards.append((i, str(j)))
     
+    total_cards = len(cards)
     random.shuffle(cards)
+    
+    print(cards[total_cards-10 : total_cards])
 
     for i in range(player_number):
         for j in range(2):
-            players[i].add_card(cards[i * 2 + j])
+            players[i].add_card(cards[total_cards - 1])
+            cards.pop()
+            total_cards -= 1
 
     for i in players:
-        print(i.show_hand())
+        print('Players cards: ', i.show_hand())
+
+    opened_cards = []
+    for i in range(5):
+        opened_cards.append(cards[total_cards - 1])
+        total_cards -= 1
+    
+
+    print(opened_cards)
+
+    # assing the best coombinatio to each player
+    for player in players:
+        check(player, opened_cards)
+
+    
+    # choose a player with the highest combination and display the combination
+    for i in players: 
 
 
+    print('Game Over')
 if __name__ == '__main__':
     main()
