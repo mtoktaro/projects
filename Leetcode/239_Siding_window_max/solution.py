@@ -16,7 +16,7 @@ class Solution:
             if i >= (k-1):
                 ans.append(nums[dq[0]])
 
-        return ans
+        return ans 
 nums = [1,3,-1,-3,5,3,6,7]
 k = 3
 
