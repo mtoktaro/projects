@@ -1,4 +1,4 @@
-import heapq 
+from collections import deque
 
 class Solution:
     def maxSlidingWindow(self, nums: list[int], k: int) -> list[int]:
