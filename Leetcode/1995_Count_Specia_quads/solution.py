@@ -9,6 +9,6 @@ class Solution:
                         if nums[i] == (nums[j]-nums[k]-nums[l]):
                             ans+=1
 
-
+ 
         return ans
         
