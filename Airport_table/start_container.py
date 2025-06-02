@@ -4,7 +4,7 @@ import os
 
 class StartContainer:
 
-    def start_postgres_container(
+    def start_postgres_container(self, 
         container_name="my-postgres",
         postgres_password="mysecretpassword",
         port=5432,

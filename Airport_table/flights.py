@@ -1,17 +1,21 @@
 import requests
+import pandas as pd
 
 class Flights:
     def __init__(self):
-        API_KEY = '8cc84bb968d58e11c127814350d963e7'  
-        API_URL = 'http://api.aviationstack.com/v1/flights'
+        self.API_KEY = '8cc84bb968d58e11c127814350d963e7'  
+        self.API_URL = 'http://api.aviationstack.com/v1/flights'
+        # self.data = self. fetch_flight_data()
+        
+    def get_flights_data(self):
         params = {
-            'access_key': API_KEY,
-            'limit': 100,
+            'access_key': self.API_KEY,
+            'limit': 10,
             'dep_iata': 'DEN'
         }
-        response = requests.get(API_URL, params=params)
+        response = requests.get(self.API_URL, params=params)
         data = response.json()
 
-        print(data.columns)
+        print(data)
 
         return data
