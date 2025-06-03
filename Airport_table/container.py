@@ -1,8 +1,10 @@
 import docker
 import time
 import os
+from sqlalchemy import create_engine
+import pandas as pd
 
-class StartContainer:
+class Container:
 
     def start_postgres_container(self, 
         container_name="my-postgres",
@@ -38,3 +40,15 @@ class StartContainer:
 
         print(f"PostgreSQL container '{container_name}' is running.")
         return container
+
+    def write_to_postgres(self,df: pd.DataFrame, table_name: str):
+        engine = create_engine('postgresql://postgres:mysecretpassword@localhost:5432/postgres')
+        
+        df.to_sql(
+            name=table_name,
+            con=engine,
+            if_exists='replace',  
+            index=False  
+        )
+        
+        print(f"Successfully wrote data to table '{table_name}'") 
