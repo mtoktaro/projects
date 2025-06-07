@@ -29,7 +29,7 @@ class Solution:
                 groups[i][1] = num
             else:
                 groups[i][0] = min(groups[i][0], num)
-                groups[i][1] = max(groups[i][1], num)
+                groups[i][1] = max(groups[i][1], num) 
         
         prev_max = -1
         ans = 0
