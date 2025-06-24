@@ -11,7 +11,7 @@ class Solution:
                 stack.pop()
                 removals_left -= 1
             
-            stack.append(num[i])
+            stack.append(num[i]) 
          
         for i in range(removals_left):
             stack.pop()
