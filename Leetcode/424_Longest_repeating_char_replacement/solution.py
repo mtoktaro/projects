@@ -5,7 +5,7 @@ class Solution:
         n = len(s)
         d = {}
         
-        ans = 0
+        ans = 0 
         max_freq = 0
         while l <= r and r < n:
             d[s[r]] = 1 + d.get(s[r] , 0)
