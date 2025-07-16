@@ -4,7 +4,7 @@ class Solution:
         r = 0
         n = len(s)
         d = {}
-        
+         
         ans = 0 
         max_freq = 0
         while l <= r and r < n:
