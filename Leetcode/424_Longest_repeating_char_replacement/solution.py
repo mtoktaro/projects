@@ -11,7 +11,7 @@ class Solution:
             d[s[r]] = 1 + d.get(s[r] , 0)
         
             max_freq = max(max_freq, d[s[r]])
-            
+             
             if r - l + 1 - max_freq > k:
                 d[s[l]] -= 1
                 l += 1
