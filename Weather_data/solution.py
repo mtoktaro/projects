@@ -88,7 +88,7 @@ converted_data['avg'] = converted_data['T_avg'].mean()
 converted_data['avg_grpb'] = converted_data.groupby('date')['T_avg'].transform('mean')
 
 print(converted_data.head(5))
-converted_data.to_csv('converted_data.csv')
+converted_data.to_csv('converted_data.csv', index=False)
 
 
 conn = sqlite3.connect(":memory:")
@@ -114,9 +114,24 @@ result = pd.read_sql(query, conn).reset_index(drop=True)
 
 print(result)
 
+if 'T_avg' not in result.columns: 
+    print('T_avg not in result.columns')
+
+
+
 directory = '/Users/doni/Desktop/Max/projects/Weather_data/result'
 file_name = 'sql_table.csv'
 
 os.makedirs(directory, exist_ok = True)
 
+result_list_of_dicts = result.to_dict(orient='records')
+
+print(result_list_of_dicts)
+
 result.to_csv(os.path.join(directory, file_name), index = False)
+
+df_loaded = pd.read_csv('converted_data.csv')
+
+print(df_loaded[['date', 'Temp', 'hour']].groupby('date').mean().sort_values(by='date'))
+
+print(df_loaded['date'].unique())
